@@ -1,138 +1,47 @@
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
-    
-    [SerializeField] private float speed;
-    [SerializeField] private float jumpPower;
-
-   
-    [SerializeField] private float coyoteTime; //How much time the player can hang in the air before jumping
-    private float coyoteCounter; //How much time passed since the player ran off the edge
-
-   
-    [SerializeField] private int extraJumps;
-    private int jumpCounter;
-
-
-    [SerializeField] private float wallJumpX; //Horizontal wall jump force
-    [SerializeField] private float wallJumpY; //Vertical wall jump force
-
-
-    [SerializeField] private LayerMask groundLayer;
-    [SerializeField] private LayerMask wallLayer;
-
- 
-   // [SerializeField] private AudioClip jumpSound;
-
-    private Rigidbody2D body;
-   // private Animator anim;
-    private CapsuleCollider2D capCollider;
-    private float wallJumpCooldown;
-    private float horizontalInput;
+    [SerializeField] private GameObject nimbleCharacter;  // The nimble, repairing character
+    [SerializeField] private GameObject heavyCharacter;   // The heavy, robot character
+    private GameObject activeCharacter;                   // The currently active character
+    private PlayerMovement nimbleMovement;                // Reference to nimble character's PlayerMovement script
+    private PlayerMovement heavyMovement;                 // Reference to heavy character's PlayerMovement script
 
     private void Awake()
     {
-        //Grab references for rigidbody and animator from object
-        body = GetComponent<Rigidbody2D>();
-       // anim = GetComponent<Animator>();
-        capCollider = GetComponent<CapsuleCollider2D>();
+        // Get references to PlayerMovement scripts
+        nimbleMovement = nimbleCharacter.GetComponent<PlayerMovement>();
+        heavyMovement = heavyCharacter.GetComponent<PlayerMovement>();
+
+        // Initially set the nimble character as active
+        SwitchToCharacter(nimbleCharacter);
     }
 
     private void Update()
     {
-        horizontalInput = Input.GetAxis("Horizontal");
-
-        //Flip player when moving left-right
-        if (horizontalInput > 0.01f)
-            transform.localScale = Vector3.one;
-        else if (horizontalInput < -0.01f)
-            transform.localScale = new Vector3(-1, 1, 1);
-
-        //Set animator parameters
-       // anim.SetBool("run", horizontalInput != 0);
-       // anim.SetBool("grounded", isGrounded());
-
-        //Jump
-        if (Input.GetKeyDown(KeyCode.Space))
-            Jump();
-
-        //Adjustable jump height
-        if (Input.GetKeyUp(KeyCode.Space) && body.velocity.y > 0)
-            body.velocity = new Vector2(body.velocity.x, body.velocity.y / 2);
-
-        if (onWall())
+        // Switch between characters when Tab is pressed
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
-            body.gravityScale = 0;
-            body.velocity = Vector2.zero;
-        }
-        else
-        {
-            body.gravityScale = 7;
-            body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
-
-            if (isGrounded())
-            {
-                coyoteCounter = coyoteTime; //Reset coyote counter when on the ground
-                jumpCounter = extraJumps; //Reset jump counter to extra jump value
-            }
+            if (activeCharacter == nimbleCharacter)
+                SwitchToCharacter(heavyCharacter);
             else
-                coyoteCounter -= Time.deltaTime; //Start decreasing coyote counter when not on the ground
+                SwitchToCharacter(nimbleCharacter);
         }
     }
 
-    private void Jump()
+    private void SwitchToCharacter(GameObject character)
     {
-        if (coyoteCounter <= 0 && !onWall() && jumpCounter <= 0) return; 
-        //If coyote counter is 0 or less and not on the wall and don't have any extra jumps don't do anything
-
-        //SoundManager.instance.PlaySound(jumpSound);
-
-        if (onWall())
-            WallJump();
-        else
+        // Disable the currently active character's movement script
+        if (activeCharacter != null)
         {
-            if (isGrounded())
-                body.velocity = new Vector2(body.velocity.x, jumpPower);
-            else
-            {
-                //If not on the ground and coyote counter bigger than 0 do a normal jump
-                if (coyoteCounter > 0)
-                    body.velocity = new Vector2(body.velocity.x, jumpPower);
-                else
-                {
-                    if (jumpCounter > 0) //If we have extra jumps then jump and decrease the jump counter
-                    {
-                        body.velocity = new Vector2(body.velocity.x, jumpPower);
-                        jumpCounter--;
-                    }
-                }
-            }
-
-            //Reset coyote counter to 0 to avoid double jumps
-            coyoteCounter = 0;
+            activeCharacter.GetComponent<PlayerMovement>().enabled = false;
         }
-    }
 
-    private void WallJump()
-    {
-        body.AddForce(new Vector2(-Mathf.Sign(transform.localScale.x) * wallJumpX, wallJumpY));
-        wallJumpCooldown = 0;
-    }
+        // Set the new active character
+        activeCharacter = character;
+        activeCharacter.GetComponent<PlayerMovement>().enabled = true;
 
-
-    private bool isGrounded()
-    {
-        RaycastHit2D raycastHit = Physics2D.BoxCast(capCollider.bounds.center, capCollider.bounds.size, 0, Vector2.down, 0.1f, groundLayer);
-        return raycastHit.collider != null;
-    }
-    private bool onWall()
-    {
-        RaycastHit2D raycastHit = Physics2D.BoxCast(capCollider.bounds.center, capCollider.bounds.size, 0, new Vector2(transform.localScale.x, 0), 0.1f, wallLayer);
-        return raycastHit.collider != null;
-    }
-    public bool canAttack()
-    {
-        return horizontalInput == 0 && isGrounded() && !onWall();
+        // Optionally, reposition the camera or adjust other gameplay elements here.
     }
 }
