@@ -68,9 +68,10 @@ public class PlayerController : MonoBehaviour
     }
     public void StartFlight()
     {
+        Debug.Log("start flight");
         // Implement flight mechanics, e.g., applying an upward force or modifying gravity
-        Rigidbody rb = GetComponent<Rigidbody>();
-        rb.AddForce(Vector3.up * flightForce, ForceMode.Impulse);
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        rb.AddForce(Vector3.up * flightForce, ForceMode2D.Impulse);
     }
 
 }

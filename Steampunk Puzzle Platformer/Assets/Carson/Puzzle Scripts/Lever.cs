@@ -4,13 +4,23 @@ using UnityEngine;
 
 public class Lever : MonoBehaviour
 {
-    public SteamValve steamValve; // Reference to the steam valve to activate
+    public bool isActivated = false;
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.tag == "Player")
         {
-            steamValve.Activate();
+            isActivated = true;
+
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == "Player")
+        {
+            isActivated = false;
+
         }
     }
 }
