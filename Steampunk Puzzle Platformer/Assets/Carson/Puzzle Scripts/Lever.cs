@@ -10,17 +10,15 @@ public class Lever : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            isActivated = true;
+            if (isActivated == true) {
+                isActivated = false;
+            }
+            else {
+                isActivated = true;
+            }
 
         }
     }
 
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.tag == "Player")
-        {
-            isActivated = false;
-
-        }
-    }
+    
 }
