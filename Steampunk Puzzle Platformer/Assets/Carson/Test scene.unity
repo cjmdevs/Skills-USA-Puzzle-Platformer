@@ -762,7 +762,7 @@ GameObject:
   - component: {fileID: 1625758118}
   - component: {fileID: 1625758119}
   m_Layer: 0
-  m_Name: Fixer Char
+  m_Name: Mechanic
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -950,7 +950,7 @@ GameObject:
   - component: {fileID: 1675491235}
   - component: {fileID: 1675491238}
   m_Layer: 0
-  m_Name: Steam Valve\
+  m_Name: Jump pad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1161,7 +1161,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 0.5, y: 1.01}
   m_Direction: 0
 --- !u!114 &1935768240
 MonoBehaviour:
@@ -1246,8 +1246,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: -698369360, guid: faeda58f2968748209e37d1902508ff0, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1266,8 +1266,8 @@ Transform:
   m_GameObject: {fileID: 1935768237}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.554989, y: -1.7722906, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 3.2811, y: -0.8103, z: 0}
+  m_LocalScale: {x: 1.61, y: 1.44, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

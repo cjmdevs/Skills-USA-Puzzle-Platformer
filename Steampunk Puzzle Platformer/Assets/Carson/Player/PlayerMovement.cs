@@ -2,13 +2,14 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float speed;                // Movement speed
+   [SerializeField] private float speed;                // Movement speed
     [SerializeField] private float jumpPower;            // Jumping force
     [SerializeField] private float coyoteTime;           // Time allowed for coyote jump
     [SerializeField] private int extraJumps;             // Additional jumps allowed
     [SerializeField] private float wallJumpX;            // Horizontal wall jump force
     [SerializeField] private float wallJumpY;            // Vertical wall jump force
-    [SerializeField] private float wallSlideSpeed = 2f;  // Speed at which player slides down the wall
+    [SerializeField] private   
+ float wallSlideSpeed = 2f;  // Speed at which player slides down the wall
     [SerializeField] private LayerMask groundLayer;      // Ground detection
     [SerializeField] private LayerMask wallLayer;        // Wall detection
 
@@ -20,12 +21,14 @@ public class PlayerMovement : MonoBehaviour
     private bool hasWallJumped;
     private float wallJumpCooldown;
     private float horizontalInput;
+    private Vector3 originalScale;
 
     private void Awake()
     {
         // Grab references
         body = GetComponent<Rigidbody2D>();
         capCollider = GetComponent<CapsuleCollider2D>();
+        originalScale = transform.localScale;
     }
 
     private void Update()
@@ -33,10 +36,7 @@ public class PlayerMovement : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
 
         // Flip character based on movement direction
-        if (horizontalInput > 0.01f)
-            transform.localScale = Vector3.one;
-        else if (horizontalInput < -0.01f)
-            transform.localScale = new Vector3(-1, 1, 1);
+        transform.localScale = new Vector3(Mathf.Sign(horizontalInput) * originalScale.x, originalScale.y, originalScale.z);
 
         // Decrease wall jump cooldown over time
         wallJumpCooldown -= Time.deltaTime;
