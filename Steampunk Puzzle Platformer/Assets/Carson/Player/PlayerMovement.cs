@@ -23,6 +23,8 @@ public class PlayerMovement : MonoBehaviour
     private float horizontalInput;
     private Vector3 originalScale;
 
+    public Animator animator;
+
     private void Awake()
     {
         // Grab references
@@ -34,6 +36,8 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         horizontalInput = Input.GetAxis("Horizontal");
+
+        animator.SetFloat("Speed", Mathf.Abs(horizontalInput));
 
         // Flip character based on movement direction
         transform.localScale = new Vector3(Mathf.Sign(horizontalInput) * originalScale.x, originalScale.y, originalScale.z);
