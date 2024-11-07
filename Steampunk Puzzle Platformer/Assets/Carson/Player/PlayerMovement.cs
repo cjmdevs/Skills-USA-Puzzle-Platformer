@@ -70,6 +70,7 @@ public class PlayerMovement : MonoBehaviour
             if (isGrounded())
             {
                 ResetJumpState();  // Reset states when grounded
+                animator.SetBool("isJumping", false);
             }
             else
             {
@@ -98,6 +99,7 @@ public class PlayerMovement : MonoBehaviour
             body.velocity = new Vector2(body.velocity.x, jumpPower); // Set vertical velocity directly for consistent jumps
             coyoteCounter = 0; // Reset coyote jump
             isJumping = true;
+            animator.SetBool("isJumping", true);
         }
         else if (jumpCounter > 0) // Extra jumps
         {
@@ -129,11 +131,14 @@ public class PlayerMovement : MonoBehaviour
         isJumping = false;
     }
 
+
+
     private bool isGrounded()
     {
         // Check if the player is grounded using a BoxCast
         RaycastHit2D raycastHit = Physics2D.BoxCast(capCollider.bounds.center, capCollider.bounds.size, 0, Vector2.down, 0.1f, groundLayer);
         return raycastHit.collider != null;
+
     }
 
     private bool onWall()
