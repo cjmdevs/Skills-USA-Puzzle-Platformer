@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public GameObject Player;
     public GameObject Robot;
     public GameObject LoseUI;
+    public GameObject WinUI;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,12 @@ public class GameManager : MonoBehaviour
     }
     public void GameOver(){
         LoseUI.SetActive(true);
+        Player.SetActive(false);
+        Robot.SetActive(false);
+    }
+
+    public void WinScreen(){
+        WinUI.SetActive(true);
         Player.SetActive(false);
         Robot.SetActive(false);
     }
