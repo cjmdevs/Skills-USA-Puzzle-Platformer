@@ -26,12 +26,14 @@ public class GameManager : MonoBehaviour
         LoseUI.SetActive(true);
         Player.SetActive(false);
         Robot.SetActive(false);
+        Cursor.visible = true;
     }
 
     public void WinScreen(){
         WinUI.SetActive(true);
         Player.SetActive(false);
         Robot.SetActive(false);
+        Cursor.visible = true;
     }
 
     public void Restart(){
