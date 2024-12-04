@@ -13,13 +13,10 @@ public class SteamValve : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Robot")
-        {
         if (lever.isActivated)
         {
             Debug.Log("leveer is activated");
             playerController.StartFlight();
         }
-    }
     }
 }
