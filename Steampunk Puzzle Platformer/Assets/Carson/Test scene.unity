@@ -612,7 +612,6 @@ GameObject:
   m_Component:
   - component: {fileID: 198593665}
   - component: {fileID: 198593669}
-  - component: {fileID: 198593668}
   - component: {fileID: 198593667}
   - component: {fileID: 198593666}
   m_Layer: 0
@@ -709,22 +708,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.3, y: 1}
   m_EdgeRadius: 0
---- !u!114 &198593668
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 198593664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1746460010a44b9f933fd85dfe9c0d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementDistance: 5
-  movementSpeed: 2
-  isMovingUp: 1
-  pressurePlate: {fileID: 1095807403}
 --- !u!212 &198593669
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2247,7 +2230,6 @@ GameObject:
   m_Component:
   - component: {fileID: 931581123}
   - component: {fileID: 931581127}
-  - component: {fileID: 931581126}
   - component: {fileID: 931581125}
   - component: {fileID: 931581124}
   m_Layer: 0
@@ -2344,22 +2326,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.3, y: 1}
   m_EdgeRadius: 0
---- !u!114 &931581126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 931581122}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1746460010a44b9f933fd85dfe9c0d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementDistance: 5
-  movementSpeed: 2
-  isMovingUp: 1
-  pressurePlate: {fileID: 1832532682}
 --- !u!212 &931581127
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3096,7 +3062,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1248090865}
   - component: {fileID: 1248090864}
-  - component: {fileID: 1248090863}
   - component: {fileID: 1248090862}
   - component: {fileID: 1248090861}
   m_Layer: 0
@@ -3178,22 +3143,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.3, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1248090863
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1248090860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1746460010a44b9f933fd85dfe9c0d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementDistance: 5
-  movementSpeed: 2
-  isMovingUp: 1
-  pressurePlate: {fileID: 731382364}
 --- !u!212 &1248090864
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3271,7 +3220,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1330604459}
   - component: {fileID: 1330604463}
-  - component: {fileID: 1330604462}
   - component: {fileID: 1330604461}
   - component: {fileID: 1330604460}
   m_Layer: 0
@@ -3368,22 +3316,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.3, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1330604462
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1330604458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1746460010a44b9f933fd85dfe9c0d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementDistance: 5
-  movementSpeed: 2
-  isMovingUp: 1
-  pressurePlate: {fileID: 2093659282}
 --- !u!212 &1330604463
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4401,7 +4333,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1563556233}
   - component: {fileID: 1563556237}
-  - component: {fileID: 1563556236}
   - component: {fileID: 1563556235}
   - component: {fileID: 1563556234}
   m_Layer: 0
@@ -4498,22 +4429,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.3, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1563556236
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1563556232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1746460010a44b9f933fd85dfe9c0d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementDistance: 5
-  movementSpeed: 2
-  isMovingUp: 1
-  pressurePlate: {fileID: 515999168}
 --- !u!212 &1563556237
 SpriteRenderer:
   m_ObjectHideFlags: 0
