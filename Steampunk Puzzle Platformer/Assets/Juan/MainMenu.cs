@@ -5,12 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+
+
+    public string mainMenuScene = "Main Menu";
+    public string tutorialScene = "tutorial";
+    public string gameScene = "Test scene";
     // Start is called before the first frame update
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1);
+        SceneManager.LoadScene(gameScene);
         Cursor.visible = false;
     }
+
+    public void StartTutorial()
+    {
+    SceneManager.LoadScene(tutorialScene);
+    }
+
 
     public void QuitGame()
     {

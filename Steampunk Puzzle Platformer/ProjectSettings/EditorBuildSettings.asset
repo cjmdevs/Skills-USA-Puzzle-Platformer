@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Juan/Main Menu.unity
     guid: b67e50dc19d42402b882be7bd59f2149
   - enabled: 1
+    path: Assets/Carson/tutorial.unity
+    guid: 744317f61704644669acb8a3772ed3ce
+  - enabled: 1
     path: Assets/Carson/Test scene.unity
     guid: 7c014bf11a3c044829b13f162c417e61
   m_configObjects: {}

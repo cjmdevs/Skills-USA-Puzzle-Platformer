@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public GameObject Robot;
     public GameObject LoseUI;
     public GameObject WinUI;
+    public string mainMenuScene = "Main Menu";
+
 
     // Start is called before the first frame update
     void Start()
@@ -42,5 +44,10 @@ public class GameManager : MonoBehaviour
 
     public void quit(){
         Application.Quit();
+    }
+
+    public void tutorialComplete()
+    {
+        SceneManager.LoadScene(mainMenuScene);
     }
 }
