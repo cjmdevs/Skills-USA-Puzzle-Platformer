@@ -177,6 +177,7 @@ MonoBehaviour:
   mainMenuScene: Main Menu
   tutorialScene: tutorial
   gameScene: Test scene
+  stopwatch: {fileID: 0}
 --- !u!1 &251066697
 GameObject:
   m_ObjectHideFlags: 0
@@ -1477,6 +1478,7 @@ MonoBehaviour:
   mainMenuScene: Main Menu
   tutorialScene: tutorial
   gameScene: Test scene
+  stopwatch: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
