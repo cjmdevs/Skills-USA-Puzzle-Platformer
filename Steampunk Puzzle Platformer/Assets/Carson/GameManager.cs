@@ -10,13 +10,15 @@ public class GameManager : MonoBehaviour
     public GameObject Robot;
     public GameObject LoseUI;
     public GameObject WinUI;
+
+    public Stopwatch stopwatch;
     public string mainMenuScene = "Main Menu";
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        stopwatch.StartStopwatch();
     }
 
     // Update is called once per frame
@@ -29,6 +31,7 @@ public class GameManager : MonoBehaviour
         Player.SetActive(false);
         Robot.SetActive(false);
         Cursor.visible = true;
+        stopwatch.StopStopwatch();
     }
 
     public void WinScreen(){
@@ -36,6 +39,7 @@ public class GameManager : MonoBehaviour
         Player.SetActive(false);
         Robot.SetActive(false);
         Cursor.visible = true;
+        stopwatch.StopStopwatch();
     }
 
     public void Restart(){
