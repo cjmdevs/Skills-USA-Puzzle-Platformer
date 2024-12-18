@@ -9,13 +9,23 @@ public class MainMenu : MonoBehaviour
 
     public string mainMenuScene = "Main Menu";
     public string tutorialScene = "tutorial";
-    public string gameScene = "Test scene";
+    public string scene2 = "level 2";
+    public string scene1 = "Test scene";
+
     public Stopwatch stopwatch;
     // Start is called before the first frame update
-    public void PlayGame()
+    public void scene2Game()
     {
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1);
-        SceneManager.LoadScene(gameScene);
+        SceneManager.LoadScene(scene2);
+        Cursor.visible = false;
+        
+    }
+
+    public void scene1Game()
+    {
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1);
+        SceneManager.LoadScene(scene1);
         Cursor.visible = false;
         
     }
